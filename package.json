@@ -4,7 +4,7 @@
   "description": "Node app starter",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon build/index.js",
+    "start": "node build/index.js",
     "lint": "standard --ignore-path .gitignore '**/*.js'",
     "build": "babel src --out-dir build --ignore test.js",
     "test": "tape -r babel-register 'src/**/*.test.js' | tap-dot",
