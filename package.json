@@ -9,7 +9,7 @@
     "build": "babel src --out-dir build --ignore test.js",
     "test": "tape -r babel-register 'src/**/*.test.js' | tap-dot",
     "test:watch": "nodemon --ignore build/ -q -x 'npm test'",
-    "dev": "npm run test:watch & babel-watch src/index.js"
+    "dev": "npm run test:watch & babel-watch src/index.js & wait"
   },
   "author": "Jouko Saastamoinen <joukosaastamoinen@gmail.com>",
   "license": "ISC",
