@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon build/index.js",
-    "lint": "eslint --ignore-path .gitignore '**/*.js'",
+    "lint": "standard --ignore-path .gitignore '**/*.js'",
     "build": "babel src --out-dir build --ignore test.js",
     "test": "tape -r babel-register 'src/**/*.test.js' | tap-dot",
     "test:watch": "nodemon --ignore build/ -q -x 'npm test'",
@@ -15,12 +15,11 @@
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "6.22.1",
-    "babel-eslint": "8.0.1",
     "babel-preset-env": "1.6.1",
     "babel-register": "6.22.0",
     "babel-watch": "2.0.7",
-    "eslint": "3.11.0",
     "nodemon": "1.11.1",
+    "standard": "10.0.3",
     "tap-dot": "1.0.5",
     "tape": "4.7.0"
   }
