@@ -4,34 +4,57 @@
   "description": "Node app starter",
   "main": "src/index.js",
   "scripts": {
-    "start": "node build/index.js",
+    "postinstall": "npm run build",
+    "start": "nf start",
+    "start:watch": "babel-watch src/index.js | bunyan -o short",
+    "build": "npm run build-server && npm run build-client",
+    "build-server": "babel src --out-dir build/server --ignore test.js",
+    "build-client": "webpack --bail",
+    "build-client:watch": "webpack --watch",
     "lint": "eslint --ignore-path .gitignore '**/*.js' && prettier --single-quote --list-different 'src/**/*.js'",
-    "build": "babel src --out-dir build --ignore test.js",
     "test": "npm run lint && tape -r babel-register -r babel-polyfill 'src/**/*.test.js' | tap-dot",
     "test:watch": "nodemon --ignore build/ -q -x 'npm test'",
-    "dev": "npm run test:watch & babel-watch src/index.js & wait"
+    "dev": "npm run build-client && (npm run build-client:watch & nf run npm run start:watch & npm run test:watch & wait)"
   },
   "author": "Jouko Saastamoinen <joukosaastamoinen@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "assets-webpack-plugin": "3.8.4",
     "babel-cli": "6.26.0",
+    "babel-loader": "7.1.5",
     "babel-plugin-transform-object-rest-spread": "6.26.0",
     "babel-preset-env": "1.6.1",
+    "babel-preset-react": "6.24.1",
     "babel-register": "6.26.0",
     "babel-watch": "2.0.7",
+    "compression-webpack-plugin": "1.1.11",
     "eslint": "5.2.0",
     "eslint-config-prettier": "2.9.0",
     "eslint-config-standard": "11.0.0",
+    "eslint-config-standard-react": "6.0.0",
     "eslint-plugin-import": "2.13.0",
     "eslint-plugin-node": "7.0.1",
     "eslint-plugin-promise": "3.8.0",
+    "eslint-plugin-react": "7.10.0",
     "eslint-plugin-standard": "3.1.0",
     "nodemon": "1.18.3",
     "prettier": "1.14.0",
+    "sinon": "6.1.4",
     "tap-dot": "2.0.0",
-    "tape": "4.9.1"
+    "tape": "4.9.1",
+    "webpack": "4.16.3",
+    "webpack-cli": "3.1.0"
   },
   "engines": {
     "node": "10.7.0"
+  },
+  "dependencies": {
+    "bunyan": "1.8.12",
+    "foreman": "3.0.1",
+    "koa": "2.5.2",
+    "koa-router": "7.4.0",
+    "koa-send": "5.0.0",
+    "react": "16.4.1",
+    "react-dom": "16.4.1"
   }
 }
