@@ -7,7 +7,7 @@
     "start": "node build/index.js",
     "lint": "eslint --ignore-path .gitignore '**/*.js'",
     "build": "babel src --out-dir build --ignore test.js",
-    "test": "tape -r babel-register 'src/**/*.test.js' | tap-dot",
+    "test": "npm run lint && tape -r babel-register 'src/**/*.test.js' | tap-dot",
     "test:watch": "nodemon --ignore build/ -q -x 'npm test'",
     "dev": "npm run test:watch & babel-watch src/index.js & wait"
   },
