@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node build/index.js",
-    "lint": "eslint --ignore-path .gitignore '**/*.js'",
+    "lint": "eslint --ignore-path .gitignore '**/*.js' && prettier --single-quote --list-different 'src/**/*.js'",
     "build": "babel src --out-dir build --ignore test.js",
     "test": "npm run lint && tape -r babel-register 'src/**/*.test.js' | tap-dot",
     "test:watch": "nodemon --ignore build/ -q -x 'npm test'",
@@ -27,6 +27,7 @@
     "eslint-plugin-promise": "3.8.0",
     "eslint-plugin-standard": "3.1.0",
     "nodemon": "1.18.3",
+    "prettier": "1.14.0",
     "tap-dot": "2.0.0",
     "tape": "4.9.1"
   },
