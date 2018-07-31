@@ -1,30 +1,33 @@
 # App
 
-## Development
+## Getting started
+
+```
+cp .env.sample .env   # Copy environment variables
+npm install
+npm run dev           # Run unit tests and app in watch mode
+```
+
+Then, point your browser to <http://localhost:3000>.
+
+## Testing production build locally
 
 ```
 npm install
-npm run dev  # Run unit tests and app in watch mode
-```
-
-## Creating and running a production build locally
-
-```
 NODE_ENV=production npm run build
 NODE_ENV=production npm start
 ```
 
-## Creating a production build
+## Running in production
+
+First, create a build:
 
 ```
 npm install
 NODE_ENV=production npm run build
-NODE_ENV=production
 ```
 
-## Running in production
-
-This app can be run with a Procfile based process manager such as
+The build can be run with a Procfile based process manager such as
 [Foreman](https://github.com/ddollar/foreman).
 
 For your first deployments, you can use the
