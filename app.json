@@ -1,0 +1,23 @@
+{
+  "name": "app",
+  "description": "",
+  "env": {
+    "NODE_ENV": {
+      "required": true,
+      "value": "production"
+    },
+    "TRUST_PROXY": {
+      "required": true,
+      "value": "true"
+    },
+    "ALLOW_HTTP": {
+      "required": true,
+      "value": "false"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
