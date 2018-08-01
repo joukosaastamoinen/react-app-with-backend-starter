@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "description": "",
+  "description": "Node app",
   "env": {
     "NODE_ENV": {
       "required": true,
