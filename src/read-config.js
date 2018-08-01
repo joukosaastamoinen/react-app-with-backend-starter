@@ -24,9 +24,6 @@ const getConfigFromEnv = () => {
     app: {
       allowHttp: process.env.ALLOW_HTTP === 'true',
       trustProxy: process.env.TRUST_PROXY === 'true',
-      testPurchasesAreEnabled: process.env.ENABLE_TEST_PURCHASES === 'true',
-      enableReduxDevtools: process.env.ENABLE_REDUX_DEVTOOLS === 'true',
-      googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID || '',
       clientJSPath
     }
   }
